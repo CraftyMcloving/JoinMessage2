@@ -16,13 +16,20 @@ public class Events implements Listener{
 	
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent e){
+		//Initial Setup
 		Player p = e.getPlayer();
 		FileConfiguration config = plugin.getConfig();
 		String message = config.getString("Message");
 		String pName = p.getName();
-		message.replace("%player%", pName);
+		//Group Messages
+		if(config.getBoolean("Groups")){
+			String group = plugin.permission.getPrimaryGroup(p);
+			message = config.getString("Message." + group);
+		}
+		//Formating
+		message = message.replaceAll("%player%", pName);
+		message = message.replaceAll("&((?i)[0-9a-fk-or])", "§$1");
 		
 		e.setJoinMessage(message);
-		plugin.getLogger().info(message);
 	}
 }
