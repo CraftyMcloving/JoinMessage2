@@ -5,11 +5,11 @@ Join Message 2
 
 - Custom Join Message
 - Custom Quit Message
-- Custom Group Join Message *
-- *Custom Group Quit Message* *
-- *Permission Prefix and Suffix Support* *
+- Custom Group Join Message [1]
+- *Custom Group Quit Message* [1]
+- *Permission Prefix and Suffix Support* [1]
 - Formatting and Color Code Support
 
-**Requires Vault  
+[1]Requires Vault  
 *Not Implemented Yet*
  
