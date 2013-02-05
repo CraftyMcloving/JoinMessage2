@@ -6,5 +6,6 @@ Message: '%player% joined'
   Admin: '%player% joined, warning he is an admin!'
 #This is where you define a custom quit message.
 QuitMessage: '%player% left'
+  Admin: '%player% left, you can now relax'
 #Set to true if you want to enable group based join messages.
 Groups: false
