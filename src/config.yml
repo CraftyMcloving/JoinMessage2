@@ -1,11 +1,23 @@
-#JoinMessage © 2013 created by tacticalsk8er
 #Use "%player%" to define the player's name. 
+#For Color/Formatting Codes http://www.minecraftwiki.net/wiki/Classic_server_protocol#Color_Codes
 
-#This is where you define a custom join message.
+#Define a global custom join message.
 Message: '%player% joined'
-  Admin: '%player% joined, warning he is an admin!'
-#This is where you define a custom quit message.
+
+#Define a global custom quit message.
 QuitMessage: '%player% left'
-  Admin: '%player% left, you can now relax'
-#Set to true if you want to enable group based join messages.
+
+#Define Custom Join/Quit Messages for Groups
+Group:
+  Admin:
+    Message: 'Admin %player% joined'
+    QuitMessage: 'Admin %player% left'
+    
+#If true, plugin will use group messages.
 Groups: false
+
+#If true, plugin will add prefixs to messages.
+Prefix: false
+
+#If true, plugin will add suffixs to messages.
+Suffix: false

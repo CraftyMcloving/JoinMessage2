@@ -25,7 +25,18 @@ public class Events implements Listener{
 		//Group Messages
 		if(config.getBoolean("Groups")){
 			String group = plugin.permission.getPrimaryGroup(p);
-			message = config.getString("Message." + group);
+			message = config.getString("Group." + group + ".Message");
+		}
+		//Add Prefix
+		if(config.getBoolean("Prefix")){
+			String prefix = plugin.chat.getPlayerPrefix(p);
+			prefix = prefix.concat(pName);
+			pName = prefix;
+		}
+		//Add Suffix
+		if(config.getBoolean("Suffix")){
+			String suffix = plugin.chat.getPlayerSuffix(p);
+			pName = pName.concat(suffix);
 		}
 		//Formating
 		message = message.replaceAll("%player%", pName);
@@ -44,7 +55,18 @@ public class Events implements Listener{
 		//Group Messages
 		if(config.getBoolean("Groups")){
 			String group = plugin.permission.getPrimaryGroup(p);
-			message = config.getString("QuitMessage." + group);
+			message = config.getString("Group." + group + ".QuitMessage");
+		}
+		//Add Prefix
+		if(config.getBoolean("Prefix")){
+			String prefix = plugin.chat.getPlayerPrefix(p);
+			prefix = prefix.concat(pName);
+			pName = prefix;
+		}
+		//Add Suffix
+		if(config.getBoolean("Suffix")){
+			String suffix = plugin.chat.getPlayerSuffix(p);
+			pName = pName.concat(suffix);
 		}
 		//Formating
 		message = message.replaceAll("%player%", pName);

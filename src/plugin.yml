@@ -3,5 +3,6 @@ main: me.tacticalsk8er.JoinMessage.Main
 author: tacticalsk8er
 version: 2.0
 description: Changes the default join message with a customized one.
+softdepend: [Vault]
 
 commands:
