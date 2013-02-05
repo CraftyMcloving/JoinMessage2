@@ -10,5 +10,5 @@ Features:
 - Permission Prefix and Suffix Support**
 - Formatting and Color Code Support
 
-*Requires Vault
-** Not Implemented Yet
+**Requires Vault
+*** Not Implemented Yet
