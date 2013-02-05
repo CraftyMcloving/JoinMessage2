@@ -4,5 +4,7 @@
 #This is where you define a custom join message.
 Message: '%player% joined'
   Admin: '%player% joined, warning he is an admin!'
+#This is where you define a custom quit message.
+QuitMessage: '%player% left'
 #Set to true if you want to enable group based join messages.
 Groups: false
