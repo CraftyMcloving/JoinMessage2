@@ -1,0 +1,4 @@
+#JoinMessage © 2013 created by tacticalsk8er
+#Use "%player%" to define the player's name. 
+#Message: This is where you define a custom join message.
+Message: '%player% joined'

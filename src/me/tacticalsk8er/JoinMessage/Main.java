@@ -4,14 +4,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 	
-	Events Events = new Events(this);
+	Events events = new Events(this);
 	
 	@Override
 	public void onDisable() { }
 	
 	@Override
 	public void onEnable() { 
-		this.getServer().getPluginManager().registerEvents(Events, this);
+		this.getServer().getPluginManager().registerEvents(events, this);
+		this.saveDefaultConfig();
 	}
 	
 	
