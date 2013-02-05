@@ -10,6 +10,6 @@ Join Message 2
 - *Permission Prefix and Suffix Support* *
 - Formatting and Color Code Support
 
-*&nbsp;Requires Vault<br />
-*Not Implemented Yet*
+**Requires Vault<br />
+*Not Implemented Yet
  
