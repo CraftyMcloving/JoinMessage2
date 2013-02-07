@@ -6,3 +6,17 @@ description: Changes the default join message with a customized one.
 softdepend: [Vault]
 
 commands:
+
+permissions:
+  jm.silent:
+    description: Allows you to join/leave the server without a join/leave message.
+    children:
+      jm.silentjoin: true
+      jm.silentquit: true
+  jm.silentjoin:
+    description: Allows you to join the server without a join message.
+    default: false
+  jm.silentquit:
+    description: Allows you to leave the server without a leave message.
+    default: false
+  

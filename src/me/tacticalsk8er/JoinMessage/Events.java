@@ -42,7 +42,11 @@ public class Events implements Listener{
 		message = message.replaceAll("%player%", pName);
 		message = message.replaceAll("&((?i)[0-9a-fk-or])", "§$1");
 		//Set Message
-		e.setJoinMessage(message);
+		if(p.hasPermission("jm.silentjoin")){
+			e.setJoinMessage("");
+		} else {
+			e.setJoinMessage(message);
+		}
 	}
 	
 	@EventHandler
@@ -72,6 +76,10 @@ public class Events implements Listener{
 		message = message.replaceAll("%player%", pName);
 		message = message.replaceAll("&((?i)[0-9a-fk-or])", "§$1");
 		//Set Message
-		e.setQuitMessage(message);
+		if(p.hasPermission("jm.silentquit")){
+			e.setQuitMessage("");
+		} else {
+			e.setQuitMessage(message);
+		}
 	}
 }
