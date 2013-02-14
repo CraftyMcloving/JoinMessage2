@@ -10,6 +10,7 @@ commands:
 permissions:
   jm.silent:
     description: Allows you to join/leave the server without a join/leave message.
+    default: false
     children:
       jm.silentjoin: true
       jm.silentquit: true

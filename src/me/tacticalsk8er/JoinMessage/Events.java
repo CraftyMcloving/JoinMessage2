@@ -79,7 +79,6 @@ public class Events implements Listener{
 		if(p.hasPermission("jm.silentquit")){
 			e.setQuitMessage("");
 		} else {
-			plugin.getServer().getLogger().info(p.getName() + " has logged out!");
 			e.setQuitMessage(message);
 		}
 	}
