@@ -1,11 +1,16 @@
 name: JoinMessage
 main: me.tacticalsk8er.JoinMessage.Main
 author: tacticalsk8er
-version: 2.0
+version: 2.2
 description: Changes the default join message with a customized one.
 softdepend: [Vault]
 
 commands:
+  jm:
+    description: Prefix to most commands in Join Message
+    permission-message: You do not have permission to use this!
+    usage: /jm
+    
 
 permissions:
   jm.silent:
@@ -20,4 +25,6 @@ permissions:
   jm.silentquit:
     description: Allows you to leave the server without a leave message.
     default: false
-  
+  jm.reload:
+    desciption: Allows you to use /jm reload.
+    default: op

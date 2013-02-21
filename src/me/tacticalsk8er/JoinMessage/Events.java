@@ -27,6 +27,10 @@ public class Events implements Listener{
 			String group = plugin.permission.getPrimaryGroup(p);
 			message = config.getString("Group." + group + ".Message");
 		}
+		//Player Messages
+		if(config.getBoolean("Players")){
+			message = config.getString("Player." + pName + ".Message");
+		}
 		//Add Prefix
 		if(config.getBoolean("Prefix")){
 			String prefix = plugin.chat.getPlayerPrefix(p);
@@ -60,6 +64,10 @@ public class Events implements Listener{
 		if(config.getBoolean("Groups")){
 			String group = plugin.permission.getPrimaryGroup(p);
 			message = config.getString("Group." + group + ".QuitMessage");
+		}
+		//Player Messages
+		if(config.getBoolean("Players")){
+			message = config.getString("Player." + pName + ".QuitMessage");
 		}
 		//Add Prefix
 		if(config.getBoolean("Prefix")){

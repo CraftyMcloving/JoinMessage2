@@ -13,8 +13,16 @@ Group:
     Message: 'Admin %player% joined'
     QuitMessage: 'Admin %player% left'
     
+#Define Custom Join/Quit Messages for Players
+Player:
+  tacticalsk8er:
+    Message: 'The developer of Join Message has joined!'
+    QuitMessage: 'The developer of Join Message has left!'
+
 #If true, plugin will use group messages.
 Groups: false
+
+#If true, plugin will use player messages.
 
 #If true, plugin will add prefixs to messages.
 Prefix: false
