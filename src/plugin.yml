@@ -1,7 +1,7 @@
 name: JoinMessage
 main: me.tacticalsk8er.JoinMessage.Main
 author: tacticalsk8er
-version: 2.2
+version: 2.3
 description: Changes the default join message with a customized one.
 softdepend: [Vault]
 
@@ -9,7 +9,7 @@ commands:
   jm:
     description: Prefix to most commands in Join Message
     permission-message: You do not have permission to use this!
-    usage: /jm
+    usage: /jm ?
     
 
 permissions:
