@@ -36,7 +36,7 @@ public class Main extends JavaPlugin {
 	public void onEnable() { 
 		this.getServer().getPluginManager().registerEvents(events, this);
 		this.saveDefaultConfig();
-		//this.getCommand("jm").setExecutor(new CommandJM(this));
+		this.getCommand("jm").setExecutor(new CommandJM(this));
 		if (getServer().getPluginManager().getPlugin("Vault") == null) {
             getLogger().warning("\n" +
             		"+--------------------------------------------------------------+\n" +
@@ -47,7 +47,7 @@ public class Main extends JavaPlugin {
         } else {
         	setupPermissions();
         	setupChat();
-        	getServer().getLogger().info("Vault Detected!");
+        	getServer().getLogger().info("[JoinMessage] Vault Detected!");
         }
 	}
 	

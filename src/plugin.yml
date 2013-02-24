@@ -26,5 +26,20 @@ permissions:
     description: Allows you to leave the server without a leave message.
     default: false
   jm.reload:
-    desciption: Allows you to use /jm reload.
+    description: Allows you to use /jm reload.
     default: op
+  jm.set:
+    description: Allows you to use /jm set.
+    default: op
+  jm.set.group:
+    description: Allows you to use /jm group.
+    default: op
+  jm.set.player:
+    description: Allows you to use /jm player.
+    default: op
+  jm.help:
+    description: Allows you to use /jm help and /jm ?.
+    default: op
+  jm.info:
+   description: Allows you to use /jm info.
+   default: op
