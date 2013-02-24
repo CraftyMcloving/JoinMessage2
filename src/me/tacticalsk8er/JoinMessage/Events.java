@@ -18,6 +18,7 @@ public class Events implements Listener{
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent e){
 		//Initial Setup
+		Boolean SendMotd = false;
 		Player p = e.getPlayer();
 		FileConfiguration config = plugin.getConfig();
 		String message = config.getString("Message");
@@ -30,6 +31,29 @@ public class Events implements Listener{
 		//Player Messages
 		if(config.getBoolean("Players")){
 			message = config.getString("Player." + pName + ".Message");
+		}
+		//Checks if new player
+		if(!plugin.database.getConfig().contains(pName)){
+			plugin.database.getConfig().set(pName + ".FirstJoin", false);
+			plugin.database.saveConfig();
+			//First Join Messages
+			if(config.getBoolean("UseNewPlayerMessage")){
+				message = config.getString("NewPlayerMessage");
+			}
+			//First Join Motd
+			if(config.getBoolean("UseNewPlayerMotd")){
+				SendMotd = true;
+			}
+		} else if(plugin.database.getConfig().getBoolean(pName + ".FirstJoin")){
+			plugin.database.getConfig().set(pName + ".FirstJoin", false);
+			//First Join Messages
+			if(config.getBoolean("UseNewPlayerMessage")){
+				message = config.getString("NewPlayerMessage");
+			}
+			//First Join Motd
+			if(config.getBoolean("UseNewPlayerMotd")){
+				SendMotd = true;
+			}
 		}
 		//Add Prefix
 		if(config.getBoolean("Prefix")){
@@ -50,6 +74,15 @@ public class Events implements Listener{
 			e.setJoinMessage("");
 		} else {
 			e.setJoinMessage(message);
+		}
+		//Sends New Player Motd
+		if(SendMotd){
+			String motd = config.getString("NewPlayerMotd");
+			//Formating
+			motd = message.replaceAll("%player%", pName);
+			motd = message.replaceAll("&((?i)[0-9a-fk-or])", "§$1");
+			//Send Motd
+			p.sendMessage(motd);
 		}
 	}
 	

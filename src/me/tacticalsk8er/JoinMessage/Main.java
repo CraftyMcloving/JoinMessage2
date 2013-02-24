@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Main extends JavaPlugin {
 	
 	Events events = new Events(this);
+	YAML database;
 	public Permission permission = null;
 	public Chat chat = null;
 	
@@ -36,6 +37,11 @@ public class Main extends JavaPlugin {
 	public void onEnable() { 
 		this.getServer().getPluginManager().registerEvents(events, this);
 		this.saveDefaultConfig();
+		this.database = new YAML(this, "players.yml");
+		database.getConfig().options().header(
+				"This is where all the players who have joined your server goes.\n" +
+				"Join Message uses this to determine if a player is new or not.");
+		database.saveConfig();
 		this.getCommand("jm").setExecutor(new CommandJM(this));
 		if (getServer().getPluginManager().getPlugin("Vault") == null) {
             getLogger().warning("\n" +

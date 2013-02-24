@@ -13,3 +13,5 @@ Join Message 2
 
  \* Requires Vault  
  
+ This Features List is Outdated.
+ 
