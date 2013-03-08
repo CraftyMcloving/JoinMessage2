@@ -13,6 +13,12 @@ NewPlayerMessage: '%player% is new to the server!'
 #Define a custom new player motd.
 NewPlayerMotd: 'Welcome %player% to our server!'
 
+#Define a custom 'Not on Whitelist' message.
+WhitelistMessage: 'You are not on the whitelist!'
+
+#Define a custom 'Server is Full' message.
+FullServerMessage: 'This server is currently full. Please come back later.'
+
 #Define Custom Join/Quit Messages for Groups
 Group:
   Admin:
@@ -36,6 +42,12 @@ UseNewPlayerMessage: false
 
 #If true, plugin will use new player motd.
 UseNewPlayerMotd: false
+
+#If true, plugin will use custom 'Not on Whitelist' message.
+UseWhitelistMessage: false
+
+#If true, plugin will use custom 'Server is Full' message.
+UseFullServerMessage: false
 
 #If true, plugin will add prefixs to messages.
 Prefix: false

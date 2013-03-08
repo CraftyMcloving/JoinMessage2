@@ -1,10 +1,13 @@
 package me.tacticalsk8er.JoinMessage;
 
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 public class Events implements Listener{
@@ -13,6 +16,27 @@ public class Events implements Listener{
 	
 	public Events(Main instance){
 		plugin = instance;
+	}
+	
+	@EventHandler (priority = EventPriority.HIGHEST)
+	public void onPlayerLoginHIGHEST(PlayerLoginEvent e){
+		Player p = e.getPlayer();
+		String message = "";
+		if(e.getResult() == PlayerLoginEvent.Result.KICK_WHITELIST){
+			if(plugin.getConfig().getBoolean("UseWhitelistMessage")){
+				//Formatting
+				message = plugin.getConfig().getString("WhitelistMessage");
+				message = message.replaceAll("%player%", p.getName());
+				//Set Message
+				e.setKickMessage(message);
+			}
+		} else if(e.getResult() == PlayerLoginEvent.Result.KICK_FULL){
+			if(plugin.getConfig().getBoolean("UseFullServerMessage")){
+				message = plugin.getConfig().getString("FullServerMessage");
+				message = message.replaceAll("%player%", p.getName());
+				e.setKickMessage(message);
+			}
+		}
 	}
 	
 	@EventHandler
@@ -68,7 +92,7 @@ public class Events implements Listener{
 		}
 		//Formating
 		message = message.replaceAll("%player%", pName);
-		message = message.replaceAll("&((?i)[0-9a-fk-or])", "§$1");
+		ChatColor.translateAlternateColorCodes('&', message);
 		//Set Message
 		if(p.hasPermission("jm.silentjoin")){
 			e.setJoinMessage("");
@@ -115,7 +139,7 @@ public class Events implements Listener{
 		}
 		//Formating
 		message = message.replaceAll("%player%", pName);
-		message = message.replaceAll("&((?i)[0-9a-fk-or])", "§$1");
+		ChatColor.translateAlternateColorCodes('&', message);
 		//Set Message
 		if(p.hasPermission("jm.silentquit")){
 			e.setQuitMessage("");
