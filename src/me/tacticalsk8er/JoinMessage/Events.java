@@ -91,8 +91,10 @@ public class Events implements Listener{
 			pName = pName.concat(suffix);
 		}
 		//Formating
-		message = message.replaceAll("%player%", pName);
-		ChatColor.translateAlternateColorCodes('&', message);
+		if(!(message.equals(""))){
+			message = message.replaceAll("%player%", pName);
+			message = ChatColor.translateAlternateColorCodes('&', message);
+		}
 		//Set Message
 		if(p.hasPermission("jm.silentjoin")){
 			e.setJoinMessage("");
@@ -103,8 +105,10 @@ public class Events implements Listener{
 		if(SendMotd){
 			String motd = config.getString("NewPlayerMotd");
 			//Formating
-			motd = message.replaceAll("%player%", pName);
-			motd = message.replaceAll("&((?i)[0-9a-fk-or])", "§$1");
+			if(!(motd.equals(""))){
+				motd = message.replaceAll("%player%", pName);
+				motd = ChatColor.translateAlternateColorCodes('&', motd);
+			}
 			//Send Motd
 			p.sendMessage(motd);
 		}
@@ -138,8 +142,10 @@ public class Events implements Listener{
 			pName = pName.concat(suffix);
 		}
 		//Formating
-		message = message.replaceAll("%player%", pName);
-		ChatColor.translateAlternateColorCodes('&', message);
+		if(!(message.equals(""))){
+			message = message.replaceAll("%player%", pName);
+			message = ChatColor.translateAlternateColorCodes('&', message);
+		}
 		//Set Message
 		if(p.hasPermission("jm.silentquit")){
 			e.setQuitMessage("");
